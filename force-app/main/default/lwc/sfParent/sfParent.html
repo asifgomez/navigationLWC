@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Parent CMP">
+        <div class="slds-p-horizontal_large">
+            <c-sf-lightning-path current-state={currentPath} steps={pathItems} onselectedpath={selectedpath}></c-sf-lightning-path>
+        </div>
+    <template if:true={isStep1}>
+        <lightning-card>
+            <div class="slds-p-horizontal_xx-large">
+                <c-sf-child1 logo-url={logo}></c-sf-child1>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isStep2}>
+        <lightning-card>
+            <div class="slds-p-horizontal_xx-large">
+                <c-sf-child2 logo-url={logo}></c-sf-child2>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isStep3}>
+        <lightning-card>
+            <div class="slds-p-horizontal_xx-large">
+                <c-sf-child3 logo-url={logo}></c-sf-child3>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={isStep4}>
+        <lightning-card>
+            <div class="slds-p-horizontal_xx-large">
+                <c-sf-child4 logo-url={logo}></c-sf-child4>
+            </div>
+        </lightning-card>
+    </template>
+    <div slot="footer" class="slds-clearfix">
+        <template if:false={isStep4}>
+            <lightning-button class="slds-m-horizontal_x-small slds-float_right" slot="actions" label="Next" title="Next" onclick={nextHandler}></lightning-button>
+        </template>
+        <template if:false={isStep1}>
+            <lightning-button class="slds-m-horizontal_x-small slds-float_right" slot="actions" label="Previous" title="Previous" onclick={backHandler}></lightning-button>
+        </template>
+    </div>
+</lightning-card>
+
+</template>
